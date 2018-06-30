@@ -38,8 +38,8 @@ class WeatherForecastPage extends Component {
 							}
 						});
 					});
-					var lineChartData = this.fetchHourlyData(fiveDaysData[Object.keys(fiveDaysData)[0]]);
-					var activeDate = Object.keys(fiveDaysData)[0];
+					var lineChartData = this.fetchHourlyData(fiveDaysData[Object.keys(fiveDaysData)[1]]);
+					var activeDate = Object.keys(fiveDaysData)[1];
 					this.setState({fiveDaysData, lineChartData, activeDate});
 				})
 				.catch(error => {

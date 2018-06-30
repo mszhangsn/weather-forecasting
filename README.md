@@ -20,5 +20,5 @@ The NotFound page is for handling wrong URLs users randomly input. It will have 
     - weather_line_chart.js
     - no_match_page.js
 - cities.js
-- weather_icon.js
+- weather_icons.js
 - APIkey.js 

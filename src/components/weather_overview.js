@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import APIkey from './APIkey';
-import WeatherIcon from './weather_icon';
+import WeatherIcons from './weather_icons';
 
 class WeatherOverview extends Component {
 
@@ -34,7 +34,7 @@ class WeatherOverview extends Component {
 	// find the right weather icon according to the icon code in OpenWeatherMap API
 	displayWeatherIcon(id) {
 		var result;
-		WeatherIcon.forEach(item => {
+		WeatherIcons.forEach(item => {
 			if (item.id === id) {
 				result = item.icon;
 			}
@@ -48,7 +48,7 @@ class WeatherOverview extends Component {
 		}
 		return (
 			<div className="col-lg-3 col-md-4 col-sm city-overview-container border rounded">
-				<img src={this.displayWeatherIcon(this.state.weatherIcon)} alt="weather icon" className="weather-icon" />
+				<img src={this.displayWeatherIcon(this.state.weatherIcon)} alt="weather icon" width="80px" className="weather-icon" />
 				<div className="col"><img width="180px" src={this.props.cityIcon} alt={`${this.props.cityName} icon`} /></div>
 				<div className="col">
 					<br />
@@ -70,11 +70,4 @@ WeatherOverview.propTypes = {
 }
 
 export default WeatherOverview;
-
-
-
-/*
-				<p>Wind: {this.state.wind} m/h, Cloudiness: {this.state.cloudiness}%</p>
-				<p>Pressure: {this.state.pressure} hpa, Humidity: {this.state.humidity}%</p>
- */
 

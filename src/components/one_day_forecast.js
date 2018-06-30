@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import WeatherIcons from './weather_icons';
 
 class OneDayForecast extends Component {
 
@@ -120,19 +121,24 @@ class OneDayForecast extends Component {
 
 	// find a weather icon for a day
 	getWeatherIcon(data) {
-		var weatherIcon;
+		var iconId, icon;
 		var hasDayIcon = data.some(item => {
 			if(item.weather[0].icon.includes("d")){
-				weatherIcon = item.weather[0].icon;
+				iconId = item.weather[0].icon;
 				return true;
 			} else {
 				return false;
 			}
 		});
 		if (!hasDayIcon) {
-			weatherIcon = data[0].weather[0].icon;
+			iconId = data[0].weather[0].icon;
 		}
-		return weatherIcon;
+		WeatherIcons.forEach(item => {
+			if (item.id === iconId) {
+				icon = item.icon;
+			}
+		});
+		return icon;
 	}
 
 	render() {
@@ -140,8 +146,9 @@ class OneDayForecast extends Component {
 		return (
 			<div onClick={() => handleClick(date)}>
 				<h3>{this.changeDateFormat(date)} {this.getDayofWeek(date)}</h3>
-				<p><span className="h4">{this.calcMaxTemp(weather)}&deg;F</span> / {this.calcMinTemp(weather)}&deg;F</p>
-				<p><img src={`http://openweathermap.org/img/w/${this.getWeatherIcon(weather)}.png`} alt="weather icon" /> {this.getWeatherDescription(weather)}</p>
+				<p><span className="h3">{this.calcMaxTemp(weather)}&deg;F</span> / {this.calcMinTemp(weather)}&deg;F</p>
+				<p><img src={this.getWeatherIcon(weather)} alt="weather icon" width="80px" /></p>
+				<p>{this.getWeatherDescription(weather)}</p>
 			</div>
 		);
 	}

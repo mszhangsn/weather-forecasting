@@ -9,7 +9,7 @@ import SnowIcon from '../images/snow_icon.png';
 import ThunderIcon from '../images/thunder_icon.png';
 import FogIcon from '../images/fog_icon.png';
 
-const WeatherIcon = [
+const WeatherIcons = [
 	{"id": "01d", icon: SunIcon},
 	{"id": "01n", icon: MoonIcon},
 	{"id": "02d", icon: CloudSunIcon},
@@ -30,4 +30,4 @@ const WeatherIcon = [
 	{"id": "50n", icon: FogIcon}
 ];
 
-export default WeatherIcon;
+export default WeatherIcons;

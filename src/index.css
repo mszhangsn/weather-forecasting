@@ -27,7 +27,7 @@ body {
 }
 /* weather forecast page */
 .daily-weather-container {
-	margin: 10px 30px 20px 30px;
+	margin: 10px 30px;
 	text-align: center;
 }
 .one-day-container {
@@ -36,14 +36,15 @@ body {
 	cursor: pointer;
 }
 .one-day-container:hover {
-	background: #eae5fc;
+	background: #accde0;
 }
 .hourly-weather-container {
 	margin-right: 20%;
 	margin-left: 20%;
+	margin-bottom: 20px;
 }
 .active-day {
-	background: #eae5fc;
+	background: #accde0;
 }
 @media screen and (max-width: 768px) {
 	.hourly-weather-container {
@@ -52,11 +53,6 @@ body {
 	.title {
 		margin: 5px 20px;
 		font-size: 23px;
-	}
-}
-@media screen and (min-width: 1000px) {
-	.weather-forecast-page-container {
-		height: 95vh;
 	}
 }
 /* No Match Page */
