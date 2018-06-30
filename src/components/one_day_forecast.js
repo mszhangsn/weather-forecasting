@@ -78,7 +78,7 @@ class OneDayForecast extends Component {
 	// find a weather icon for a day
 	getWeatherIcon(data) {
 		var weatherIcon;
-		data.some(item => {
+		var hasDayIcon = data.some(item => {
 			if(item.weather[0].icon.includes("d")){
 				weatherIcon = item.weather[0].icon;
 				return true;
@@ -86,6 +86,9 @@ class OneDayForecast extends Component {
 				return false;
 			}
 		});
+		if (!hasDayIcon) {
+			weatherIcon = data[0].weather[0].icon;
+		}
 		return weatherIcon;
 	}
 
