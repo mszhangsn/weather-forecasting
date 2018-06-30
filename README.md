@@ -11,13 +11,13 @@ Weather forecasting page displays 5-day forecast with description and line chart
 The NotFound page is for handling wrong URLs users randomly input. It will have a decent NotFound page instead of massive error messages.
 
 # JS files structure
-index.js
-- top_bar.js
-- home_page.js
-  - weather_overview.js
-- weather_forecast_page.js
-  - one_day_forecast.js
-  - weather_line_chart.js
-  - no_match_page.js
-cities.js
-APIkey.js 
+-index.js
+ - top_bar.js
+ - home_page.js
+   - weather_overview.js
+ - weather_forecast_page.js
+   - one_day_forecast.js
+   - weather_line_chart.js
+   - no_match_page.js
+-cities.js
+-APIkey.js 
