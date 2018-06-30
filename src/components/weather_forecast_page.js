@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
-import APIkey from '../APIkey';
+import APIkey from './APIkey';
 import Cities from './cities';
 import OneDayForecast from './one_day_forecast';
 import WeatherLineChart from './weather_line_chart';
@@ -15,6 +16,7 @@ class WeatherForecastPage extends Component {
 		this.getCityInfo = this.getCityInfo.bind(this);
 		this.onHandleClick = this.onHandleClick.bind(this);
 		this.fetchDailyData = this.fetchDailyData.bind(this);
+		this.isActiveDate = this.isActiveDate.bind(this);
 	}
 
 	componentDidMount() {
@@ -88,7 +90,7 @@ class WeatherForecastPage extends Component {
 	fetchDailyData() {
 		return Object.keys(this.state.fiveDaysData).map(day => {
 			return (
-				<div className="col-lg-2 col-md-4 col-sm-5 border rounded one-day-container" key={this.state.fiveDaysData[day][0].dt}>
+				<div className={`col-lg-2 col-md-4 col-sm-5 border rounded one-day-container ${this.isActiveDate(day)?"active-day":"not-active-day"}`} key={this.state.fiveDaysData[day][0].dt}>
 					<OneDayForecast 
 						date={day}
 						weather={this.state.fiveDaysData[day]} 
@@ -97,6 +99,10 @@ class WeatherForecastPage extends Component {
 				</div>
 			);
 		})		
+	}
+
+	isActiveDate(day) {
+		return day === this.state.activeDate;
 	}
 
 	render() {
@@ -119,5 +125,13 @@ class WeatherForecastPage extends Component {
 		);
 	}
 };
+
+WeatherForecastPage.propTypes = {
+	match: PropTypes.shape({
+    params: PropTypes.shape({
+      city: PropTypes.string
+    })
+  })
+}
 
 export default WeatherForecastPage;

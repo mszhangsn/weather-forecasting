@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class OneDayForecast extends Component {
 
@@ -82,10 +83,20 @@ class OneDayForecast extends Component {
 	}
 
 	// calculate the main temperature
-	calcMainTemp(list) {
-		return Math.round(list.reduce((acc, curr) => {
-			return (acc + curr.main.temp);
-		},0) / list.length);
+	// calcMainTemp(list) {
+	// 	return Math.round(list.reduce((acc, curr) => {
+	// 		return (acc + curr.main.temp);
+	// 	},0) / list.length);
+	// }
+
+	// find the maximal temperature of a day
+	calcMaxTemp(list) {
+		return list.reduce((acc, curr) => {
+			if (!acc) { 
+				acc = curr.main.temp_max;
+			}
+			return Math.round(Math.max(acc, curr.main.temp_max));
+		}, null);
 	}
 
 	// find the minimal temperature of a day
@@ -129,11 +140,17 @@ class OneDayForecast extends Component {
 		return (
 			<div onClick={() => handleClick(date)}>
 				<h3>{this.changeDateFormat(date)} {this.getDayofWeek(date)}</h3>
-				<p><span className="h4">{this.calcMainTemp(weather)}&deg;F</span> / {this.calcMinTemp(weather)}&deg;F</p>
+				<p><span className="h4">{this.calcMaxTemp(weather)}&deg;F</span> / {this.calcMinTemp(weather)}&deg;F</p>
 				<p><img src={`http://openweathermap.org/img/w/${this.getWeatherIcon(weather)}.png`} alt="weather icon" /> {this.getWeatherDescription(weather)}</p>
 			</div>
 		);
 	}
+}
+
+OneDayForecast.propTypes = {
+	date: PropTypes.string,
+	weather: PropTypes.array,
+	handleClick: PropTypes.func
 }
 
 export default OneDayForecast;

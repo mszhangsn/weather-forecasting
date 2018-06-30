@@ -36,11 +36,14 @@ body {
 	cursor: pointer;
 }
 .one-day-container:hover {
-	background: #e3f7fc;
+	background: #eae5fc;
 }
 .hourly-weather-container {
 	margin-right: 20%;
 	margin-left: 20%;
+}
+.active-day {
+	background: #eae5fc;
 }
 @media screen and (max-width: 768px) {
 	.hourly-weather-container {

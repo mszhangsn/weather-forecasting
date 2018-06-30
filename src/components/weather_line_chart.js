@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import PropTypes from 'prop-types';
 
 class WeatherLineChart extends Component {
 	render() {
@@ -16,6 +17,10 @@ class WeatherLineChart extends Component {
 			</ResponsiveContainer>
 		);
 	}
+}
+
+WeatherLineChart.propTypes = {
+	data: PropTypes.array
 }
 
 export default WeatherLineChart;

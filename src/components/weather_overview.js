@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import APIkey from '../APIkey';
+import PropTypes from 'prop-types';
+import APIkey from './APIkey';
 import WeatherIcon from './weather_icon';
 
 class WeatherOverview extends Component {
@@ -38,7 +39,6 @@ class WeatherOverview extends Component {
 				result = item.icon;
 			}
 		});
-		console.log(id);
 		return result;
 	}
 
@@ -62,10 +62,18 @@ class WeatherOverview extends Component {
 	}
 };
 
+WeatherOverview.propTypes = {
+	cityId: PropTypes.number,
+	cityName: PropTypes.string,
+	cityCountry: PropTypes.string,
+	cityIcon: PropTypes.string
+}
+
 export default WeatherOverview;
 
+
+
 /*
-				<img src={`http://openweathermap.org/img/w/${this.state.weatherIcon}.png`} className="weather-icon" alt="weather icon" />
 				<p>Wind: {this.state.wind} m/h, Cloudiness: {this.state.cloudiness}%</p>
 				<p>Pressure: {this.state.pressure} hpa, Humidity: {this.state.humidity}%</p>
  */
