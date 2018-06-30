@@ -12,12 +12,12 @@ The NotFound page is for handling wrong URLs users randomly input. It will have 
 
 # JS files structure
 index.js
-    top_bar.js
-    home_page.js
-        weather_overview.js
-    weather_forecast_page.js
-        one_day_forecast.js
-        weather_line_chart.js
-        no_match_page.js
+- top_bar.js
+- home_page.js
+  - weather_overview.js
+- weather_forecast_page.js
+  - one_day_forecast.js
+  - weather_line_chart.js
+  - no_match_page.js
 cities.js
 APIkey.js 
