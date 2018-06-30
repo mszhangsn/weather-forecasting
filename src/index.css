@@ -6,11 +6,12 @@ body {
 }
 /* home page */
 .homepage-container {
-	margin: 20px 0;
+	margin: 10px 0 20px 0;
 }
 .city-overview-container {
 	margin: 10px;
 	text-align: center;
+	position: relative;
 }
 .link {
 	color: black;
@@ -18,9 +19,15 @@ body {
 .link:hover {
   text-decoration: none;
 }
+.weather-icon {
+	position: absolute;
+	top: -25px;
+	left: -25px;
+	width: 100px;
+}
 /* weather forecast page */
 .daily-weather-container {
-	margin: 10px 30px;
+	margin: 10px 30px 20px 30px;
 	text-align: center;
 }
 .one-day-container {
@@ -51,6 +58,7 @@ body {
 }
 /* No Match Page */
 .no-match-page-container {
+	height: 75vh;
 	margin: 0 auto;
 	text-align: center;
 	margin-top: 10%;

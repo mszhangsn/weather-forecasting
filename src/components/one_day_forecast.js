@@ -49,6 +49,38 @@ class OneDayForecast extends Component {
 		return `${month} ${day}`;
 	}
 
+	getDayofWeek(date) {
+		// get one day before the date
+		var day = new Date(date);
+		var result;
+		switch(day.getDay()){
+			case 0:
+				result = "Mon";
+				break;
+			case 1:
+				result = "Tue";
+				break;
+			case 2:
+				result = "Wed";
+				break;
+			case 3:
+				result = "Thu";
+				break;
+			case 4:
+				result = "Fri";
+				break;
+			case 5:
+				result = "Sat";
+				break;
+			case 6:
+				result = "Sun";
+				break;
+			default:
+				return;
+		}
+		return result; 
+	}
+
 	// calculate the main temperature
 	calcMainTemp(list) {
 		return Math.round(list.reduce((acc, curr) => {
@@ -96,12 +128,13 @@ class OneDayForecast extends Component {
 		const { date, weather, handleClick } = this.props;
 		return (
 			<div onClick={() => handleClick(date)}>
-				<h3>{this.changeDateFormat(date)} <img src={`http://openweathermap.org/img/w/${this.getWeatherIcon(weather)}.png`} alt="weather icon" /></h3>
+				<h3>{this.changeDateFormat(date)} {this.getDayofWeek(date)}</h3>
 				<p><span className="h4">{this.calcMainTemp(weather)}&deg;F</span> / {this.calcMinTemp(weather)}&deg;F</p>
-				<p>{this.getWeatherDescription(weather)}</p>
+				<p><img src={`http://openweathermap.org/img/w/${this.getWeatherIcon(weather)}.png`} alt="weather icon" /> {this.getWeatherDescription(weather)}</p>
 			</div>
 		);
 	}
 }
 
 export default OneDayForecast;
+
