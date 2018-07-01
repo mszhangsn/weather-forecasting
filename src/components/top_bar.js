@@ -16,19 +16,19 @@ class TopBar extends Component {
 			      	<Link to="/" className="nav-link">Home</Link>
 			      </li>
 			      <li className="nav-item">
-			        <a href="/newyork" className="nav-link">New York</a>
+			        <Link to="/newyork" className="nav-link">New York</Link>
 			      </li>
 			      <li className="nav-item">
-			        <a href="/sanfrancisco" className="nav-link">San Francisco</a>
+			        <Link to="/sanfrancisco" className="nav-link">San Francisco</Link>
 			      </li>
 			      <li className="nav-item">
-			        <a href="/london" className="nav-link">London</a>
+			        <Link to="/london" className="nav-link">London</Link>
 			      </li>
 			      <li className="nav-item">
-			        <a href="/amsterdam" className="nav-link">Amsterdam</a>
+			        <Link to="/amsterdam" className="nav-link">Amsterdam</Link>
 			      </li>
 			      <li className="nav-item">
-			        <a href="/sydney" className="nav-link">Sydney</a>
+			        <Link to="/sydney" className="nav-link">Sydney</Link>
 			      </li>
 			    </ul>
 			  </div>

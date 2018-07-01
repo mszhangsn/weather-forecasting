@@ -16,7 +16,6 @@ class WeatherOverview extends Component {
 		// fetch current weather data from OpenWeatherMap API
 		axios.get(`https://api.openweathermap.org/data/2.5/weather?id=${this.props.cityId}&units=imperial&appid=${APIkey}`)
 			.then( response => {
-				console.log(response);
 				this.setState({	
 					description: response.data.weather[0].description,
 					weatherIcon: response.data.weather[0].icon,
