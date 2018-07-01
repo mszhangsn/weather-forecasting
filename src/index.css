@@ -9,7 +9,7 @@ body {
 	margin: 10px 0 40px 0;
 }
 .city-overview-container {
-	margin: 10px;
+	margin: 15px 10px 20px 10px;
 	text-align: center;
 	position: relative;
 }
@@ -29,7 +29,7 @@ body {
 	position: absolute;
 	top: 80px;
 	left: 0;
-	color: #5E7DAC;
+	color: #3D5068;
 }
 /* weather forecast page */
 .daily-weather-container {
