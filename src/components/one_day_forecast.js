@@ -9,44 +9,19 @@ class OneDayForecast extends Component {
 		var day = date.split('-')[2];
 		var month;
 		switch(date.split('-')[1]) {
-			case "01":
-				month = "Jan";
-				break;
-			case "02":
-				month = "Feb";
-				break;
-			case "03":
-				month = "Mar";
-				break;
-			case "04":
-				month = "Apr";
-				break;
-			case "05":
-				month = "May";
-				break;
-			case "06":
-				month = "Jun";
-				break;
-			case "07":
-				month = "Jul";
-				break;
-			case "08":
-				month = "Aug";
-				break;
-			case "09":
-				month = "Sep";
-				break;
-			case "10":
-				month = "Oct";
-				break;
-			case "11":
-				month = "Nov";
-				break;
-			case "12":
-				month = "Dec";
-				break;
-			default:
-				return;
+			case "01": month = "Jan"; break;
+			case "02": month = "Feb"; break;
+			case "03": month = "Mar"; break;
+			case "04": month = "Apr"; break;
+			case "05": month = "May"; break;
+			case "06": month = "Jun"; break;
+			case "07": month = "Jul"; break;
+			case "08": month = "Aug"; break;
+			case "09": month = "Sep"; break;
+			case "10": month = "Oct"; break;
+			case "11": month = "Nov"; break;
+			case "12": month = "Dec"; break;
+			default: return;
 		}
 		return `${month} ${day}`;
 	}
@@ -56,29 +31,14 @@ class OneDayForecast extends Component {
 		var day = new Date(date);
 		var result;
 		switch(day.getDay()){
-			case 0:
-				result = "Mon";
-				break;
-			case 1:
-				result = "Tue";
-				break;
-			case 2:
-				result = "Wed";
-				break;
-			case 3:
-				result = "Thu";
-				break;
-			case 4:
-				result = "Fri";
-				break;
-			case 5:
-				result = "Sat";
-				break;
-			case 6:
-				result = "Sun";
-				break;
-			default:
-				return;
+			case 0: result = "Mon"; break;
+			case 1: result = "Tue"; break;
+			case 2: result = "Wed"; break;
+			case 3: result = "Thu"; break;
+			case 4: result = "Fri"; break;
+			case 5: result = "Sat"; break;
+			case 6: result = "Sun"; break;
+			default: return;
 		}
 		return result; 
 	}

@@ -81,7 +81,7 @@ class WeatherForecastPage extends Component {
 	fetchHourlyData(data) {
 		var time, temperature;
 		return data.reduce((acc,curr) => {
-			time = curr.dt_txt.split(' ')[1];
+			time = curr.dt_txt.split(' ')[1].split(":",2).join(":");
 			temperature = curr.main.temp;
 			acc.push({time, temperature});
 			return acc;
@@ -119,7 +119,7 @@ class WeatherForecastPage extends Component {
 				<div className="daily-weather-container row justify-content-md-center">
 					{ this.fetchDailyData() }
 				</div>
-				<h3 className="text-center title">Hourly forecasts on {this.state.activeDate} in {this.getCityInfo().name}, {this.getCityInfo().country}</h3>
+				<h3 className="text-center title">Hourly forecasting on {this.state.activeDate} in {this.getCityInfo().name}, {this.getCityInfo().country}</h3>
 				<div className="hourly-weather-container" ref="linechart">
 					<WeatherLineChart data={this.state.lineChartData} />
 				</div>

@@ -6,7 +6,7 @@ body {
 }
 /* home page */
 .homepage-container {
-	margin: 10px 0 20px 0;
+	margin: 10px 0 40px 0;
 }
 .city-overview-container {
 	margin: 10px;
@@ -22,8 +22,14 @@ body {
 .weather-icon {
 	position: absolute;
 	top: -25px;
-	left: -25px;
+	left: -20px;
 	width: 100px;
+}
+.city-temperature {
+	position: absolute;
+	top: 80px;
+	left: 0;
+	color: #5E7DAC;
 }
 /* weather forecast page */
 .daily-weather-container {
