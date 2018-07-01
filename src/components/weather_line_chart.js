@@ -12,7 +12,7 @@ class WeatherLineChart extends Component {
 				  <XAxis dataKey="time" label={{ value: 'time', offset: -5, position: 'insideBottomRight' }} />
 				  <YAxis dataKey="temperature" label={{ value: 'temperature(°F)', angle: -90, position: 'insideLeft' }} />
 				  <Tooltip />
-				  <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
+				  <Line type="monotone" dataKey="temperature" stroke="#8884d8" label={{ value: 'temperature', angle: -45, position: 'bottom'}} />
 				</LineChart>
 			</ResponsiveContainer>
 		);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
@@ -73,6 +74,7 @@ class WeatherForecastPage extends Component {
 		var lineChartData = this.fetchHourlyData(this.state.fiveDaysData[key]);
 		var activeDate = key;
 		this.setState({lineChartData, activeDate});
+		window.scrollTo(0, ReactDOM.findDOMNode(this.refs.linechart).offsetTop);
 	}
 
 	// fetch hourly data
@@ -118,7 +120,7 @@ class WeatherForecastPage extends Component {
 					{ this.fetchDailyData() }
 				</div>
 				<h3 className="text-center title">Hourly forecasts on {this.state.activeDate} in {this.getCityInfo().name}, {this.getCityInfo().country}</h3>
-				<div className="hourly-weather-container">
+				<div className="hourly-weather-container" ref="linechart">
 					<WeatherLineChart data={this.state.lineChartData} />
 				</div>
 			</div>
