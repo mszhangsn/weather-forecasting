@@ -6,7 +6,7 @@ There are seven pages, including an overview page, five weather forecasting page
 
 Overview page displays the current weather in those five cities and provides links to the detail page.
 
-Weather forecasting page displays 5-day forecast with description and line charts. Line charts show the temperature forecasting per three hours in one day. Users can choose a different date to see the detail hourly forecasting.
+Weather forecasting page displays 5-day forecast with description and line chart. Line chart shows the forecasting per three hours in one day. Users can choose a different date to display that day's hourly forecasting in the line chart.
 
 The NotFound page is for handling wrong URLs users randomly input. It will have a decent NotFound page instead of massive error messages.
 
@@ -18,7 +18,7 @@ The NotFound page is for handling wrong URLs users randomly input. It will have 
   - weather_forecast_page.js
     - one_day_forecast.js
     - weather_line_chart.js
-    - no_match_page.js
+  - no_match_page.js
 - cities.js
 - weather_icons.js
 - APIkey.js 
