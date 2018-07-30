@@ -6,25 +6,25 @@ body {
 }
 /* home page */
 .homepage-container {
-	margin: 10px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 .city-overview-container {
-	margin: 15px 10px 20px 10px;
-	text-align: center;
-	position: relative;
+  margin: 15px 10px 20px 10px;
+  text-align: center;
+  position: relative;
 }
 .link {
-	color: black;
+  color: black;
 }
 .link:hover {
   text-decoration: none;
 }
 .weather-icon {
-	position: absolute;
-	top: -25px;
-	left: -20px;
-	width: 100px;
-	transition: transform 2s;
+  position: absolute;
+  top: -25px;
+  left: -20px;
+  width: 100px;
+  transition: transform 2s;
   transition-timing-function: ease;
   z-index: 1;
 }
@@ -36,61 +36,61 @@ body {
   transform: rotateY(180deg);
 }
 .city-temperature {
-	position: absolute;
-	top: 80px;
-	left: 0;
-	color: #3D5068;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  color: #3D5068;
 }
 @media screen and (min-height: 750px) {
-	.homepage-container {
-		height: 90vh;
-	}
+  .homepage-container {
+    height: 90vh;
+  }
 }
 /* weather forecast page */
 .daily-weather-container {
-	margin: 10px 30px;
-	text-align: center;
+  margin: 10px 30px;
+  text-align: center;
 }
 .one-day-container {
-	margin: 15px;
-	padding: 10px;
-	cursor: pointer;
+  margin: 15px;
+  padding: 10px;
+  cursor: pointer;
 }
 .one-day-container:hover {
-	background: #accde0;
+  background: #accde0;
 }
 .hourly-weather-container {
-	margin-right: 20%;
-	margin-left: 20%;
-	margin-bottom: 20px;
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-bottom: 20px;
 }
 .active-day {
-	background: #accde0;
+  background: #accde0;
 }
 @media screen and (max-width: 768px) {
-	.hourly-weather-container {
-		margin: 0 10px;
-	}
-	.title {
-		margin: 5px 20px;
-		font-size: 23px;
-	}
+  .hourly-weather-container {
+    margin: 0 10px;
+  }
+  .title {
+    margin: 5px 20px;
+    font-size: 23px;
+  }
 }
 /* No Match Page */
 .no-match-page-container {
-	height: 75vh;
-	margin: 0 auto;
-	text-align: center;
-	margin-top: 10%;
+  height: 75vh;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10%;
 }
 /* top bar */
 .navbar {
-	background-color: #e3f7fc!important;
+  background-color: #e3f7fc!important;
 }
 /* loading */
 .loading {
-	height: 100vh;
-	text-align: center;
-	margin-top: 20%;
+  height: 100vh;
+  text-align: center;
+  margin-top: 20%;
 }
 

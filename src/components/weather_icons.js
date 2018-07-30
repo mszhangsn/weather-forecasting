@@ -10,24 +10,24 @@ import ThunderIcon from '../images/thunder_icon.png';
 import FogIcon from '../images/fog_icon.png';
 
 const WeatherIcons = [
-	{"id": "01d", icon: SunIcon},
-	{"id": "01n", icon: MoonIcon},
-	{"id": "02d", icon: CloudSunIcon},
-	{"id": "02n", icon: CloudMoonIcon},
-	{"id": "03d", icon: CloudIcon},
-	{"id": "03n", icon: CloudIcon},
-	{"id": "04d", icon: CloudOvercastIcon},
-	{"id": "04n", icon: CloudOvercastIcon},
-	{"id": "09d", icon: RainIcon},
-	{"id": "09n", icon: RainIcon},
-	{"id": "10d", icon: RainIcon},
-	{"id": "10n", icon: RainIcon},
-	{"id": "11d", icon: ThunderIcon},
-	{"id": "11n", icon: ThunderIcon},
-	{"id": "13d", icon: SnowIcon},
-	{"id": "13n", icon: SnowIcon},
-	{"id": "50d", icon: FogIcon},
-	{"id": "50n", icon: FogIcon}
+  {"id": "01d", icon: SunIcon},
+  {"id": "01n", icon: MoonIcon},
+  {"id": "02d", icon: CloudSunIcon},
+  {"id": "02n", icon: CloudMoonIcon},
+  {"id": "03d", icon: CloudIcon},
+  {"id": "03n", icon: CloudIcon},
+  {"id": "04d", icon: CloudOvercastIcon},
+  {"id": "04n", icon: CloudOvercastIcon},
+  {"id": "09d", icon: RainIcon},
+  {"id": "09n", icon: RainIcon},
+  {"id": "10d", icon: RainIcon},
+  {"id": "10n", icon: RainIcon},
+  {"id": "11d", icon: ThunderIcon},
+  {"id": "11n", icon: ThunderIcon},
+  {"id": "13d", icon: SnowIcon},
+  {"id": "13n", icon: SnowIcon},
+  {"id": "50d", icon: FogIcon},
+  {"id": "50n", icon: FogIcon}
 ];
 
 export default WeatherIcons;

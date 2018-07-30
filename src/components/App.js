@@ -7,16 +7,16 @@ import WeatherForecastPage from './weather_forecast_page';
 import NoMatchPage from './no_match_page';
 
 export default () => {
-	return (
-		<BrowserRouter>
-			<div>
-				<TopBar />
-				<Switch>
-					<Route path="/:city" component={WeatherForecastPage} />
-					<Route path="/" component={HomePage} />
-					<Route component={NoMatchPage} />
-				</Switch>
-			</div>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <div>
+        <TopBar />
+        <Switch>
+          <Route path="/:city" component={WeatherForecastPage} />
+          <Route path="/" component={HomePage} />
+          <Route component={NoMatchPage} />
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
 }
