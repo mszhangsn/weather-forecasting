@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { fetchFivedayForecast } from '../actions';
 
-import APIkey from './APIkey';
-import Cities from './cities';
 import OneDayForecast from './one_day_forecast';
 import WeatherLineChart from './weather_line_chart';
 import NoMatchPage from './no_match_page';
@@ -34,20 +34,22 @@ class WeatherForecastPage extends Component {
     }
   }
 
-  // fetch 5-day forecast data from OpenWeatherMap API
-  fetchFiveDayForecastData() {
-    var cityInfo = this.getCityInfo();
-    return axios.get(`https://api.openweathermap.org/data/2.5/forecast?id=${cityInfo.id}&units=imperial&appid=${APIkey}`);
-  }
+  setNewState() {
+    // fetch 5-day forecast data from OpenWeatherMap API
+    // set the second day as the default active date in weather line chart
+    this.props.fetchFivedayForecast(this.getCityInfo().id).then(() => {
+      var days = [];
+      var dayCount = 4;
+      var lengthCount = this.props.weather.length - 1;
+      while (dayCount >= 0 && lengthCount > 0) {
+        days[dayCount] = this.props.weather[lengthCount].dt_txt.split(' ')[0];
+        lengthCount -= 8;
+        dayCount -= 1;
+      }
 
-  // create a new fiveDaysData array and set the second day as the default active date in weather line chart
-  setNewState(response) {
-    this.fetchFiveDayForecastData().then(response => {
-      var weatherLists = response.data.list;
-      var days = [weatherLists[0].dt_txt.split(' ')[0], weatherLists[8].dt_txt.split(' ')[0], weatherLists[16].dt_txt.split(' ')[0], weatherLists[24].dt_txt.split(' ')[0], weatherLists[32].dt_txt.split(' ')[0]];
       var fiveDaysData = {};
       days.forEach(day => {
-        fiveDaysData[day] = weatherLists.filter(item => {
+        fiveDaysData[day] = this.props.weather.filter(item => {
           if (item.dt_txt.split(' ')[0] === day) {
             return true;
           } else {
@@ -58,14 +60,12 @@ class WeatherForecastPage extends Component {
       var lineChartData = this.fetchHourlyData(fiveDaysData[Object.keys(fiveDaysData)[1]]);
       var activeDate = Object.keys(fiveDaysData)[1];
       this.setState({fiveDaysData, lineChartData, activeDate});
-    }).catch(error => {
-      console.log(error);
     });
   }
 
   // check if the city is one of the five cities of this application
   checkIfCityExist() {
-    return Cities.some(item => {
+    return this.props.cities.some(item => {
       return this.props.match.params.city === item.name.replace(/\s/g, '').toLowerCase();
     });
   }
@@ -73,7 +73,7 @@ class WeatherForecastPage extends Component {
   // get the information of this city
   getCityInfo() {
     var cityInfo = {};
-    Cities.forEach(item => {
+    this.props.cities.forEach(item => {
       if(this.props.match.params.city === item.name.replace(/\s/g, '').toLowerCase()){
         cityInfo.name = item.name;
         cityInfo.country = item.country;
@@ -150,4 +150,15 @@ WeatherForecastPage.propTypes = {
   })
 }
 
-export default WeatherForecastPage;
+function mapStateToProps(state) {
+  return {
+    cities: state.cities,
+    weather: state.weather
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchFivedayForecast }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherForecastPage);

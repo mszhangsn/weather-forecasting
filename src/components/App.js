@@ -6,7 +6,7 @@ import HomePage from './home_page';
 import WeatherForecastPage from './weather_forecast_page';
 import NoMatchPage from './no_match_page';
 
-export default () => {
+const App = () => {
   return (
     <BrowserRouter>
       <div>
@@ -20,3 +20,5 @@ export default () => {
     </BrowserRouter>
   );
 }
+
+export default App;

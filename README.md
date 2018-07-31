@@ -1,5 +1,5 @@
 # Application overview
-This is a weather forecasting web application that displays the current weather and 5-day forecast in New York, San Francisco, London, Amsterdam, and Sydney. This web application is using React and OpenWeatherMap API. 
+This is a weather forecasting web application that displays the current weather and 5-day forecast in New York, San Francisco, London, Amsterdam, and Sydney. This web application is using React, Redux, and OpenWeatherMap API. 
 
 # Pages and functionalities
 There are seven pages, including an overview page, five weather forecasting pages, and a NotFound page.
@@ -10,15 +10,3 @@ Weather forecasting page displays 5-day forecast with description and line chart
 
 The NotFound page is for handling wrong URLs users randomly input. It will have a decent NotFound page instead of massive error messages.
 
-# JS files structure
-- App.js
-  - top_bar.js
-  - home_page.js
-    - weather_overview.js
-  - weather_forecast_page.js
-    - one_day_forecast.js
-    - weather_line_chart.js
-  - no_match_page.js
-- cities.js
-- weather_icons.js
-- APIkey.js 

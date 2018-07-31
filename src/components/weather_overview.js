@@ -1,37 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import APIkey from './APIkey';
-import WeatherIcons from './weather_icons';
+import { fetchCurrentWeather } from '../actions';
 
 class WeatherOverview extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = null;
-  }
-
   componentDidMount() {
     // fetch current weather data from OpenWeatherMap API
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?id=${this.props.cityId}&units=imperial&appid=${APIkey}`)
-      .then( response => {
-        this.setState({ 
-          description: response.data.weather[0].description,
-          weatherIcon: response.data.weather[0].icon,
-          temperature: Math.round(response.data.main.temp),
-          wind: response.data.wind.speed,
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.props.fetchCurrentWeather(this.props.cityId).then(() => {
+      this.setState(this.props.weather);
+    });
   }
 
   // find the right weather icon according to the icon code in OpenWeatherMap API
   displayWeatherIcon(id) {
     var result;
-    WeatherIcons.forEach(item => {
+    this.props.icons.forEach(item => {
       if (item.id === id) {
         result = item.icon;
       }
@@ -89,5 +75,16 @@ WeatherOverview.propTypes = {
   cityIcon: PropTypes.string
 }
 
-export default WeatherOverview;
+function mapStateToProps(state) {
+  return {
+    icons: state.icons,
+    weather: state.weather
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchCurrentWeather }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherOverview);
 

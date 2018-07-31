@@ -12,4 +12,6 @@ const Cities = [
   {"id": 2147714, "name": "Sydney", "country": "AU", icon: SydneyIcon}
 ];
 
-export default Cities;
+export default () => {
+	return Cities;
+};

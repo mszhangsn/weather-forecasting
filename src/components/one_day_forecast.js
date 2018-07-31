@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import WeatherIcons from './weather_icons';
+import { connect } from 'react-redux';
 
 class OneDayForecast extends Component {
 
@@ -93,7 +93,7 @@ class OneDayForecast extends Component {
     if (!hasDayIcon) {
       iconId = data[0].weather[0].icon;
     }
-    WeatherIcons.forEach(item => {
+    this.props.icons.forEach(item => {
       if (item.id === iconId) {
         icon = item.icon;
       }
@@ -120,5 +120,11 @@ OneDayForecast.propTypes = {
   handleClick: PropTypes.func
 }
 
-export default OneDayForecast;
+function mapStateToProps(state) {
+  return {
+    icons: state.icons
+  };
+}
+
+export default connect(mapStateToProps)(OneDayForecast);
 

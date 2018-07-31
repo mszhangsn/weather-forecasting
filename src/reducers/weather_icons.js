@@ -30,4 +30,6 @@ const WeatherIcons = [
   {"id": "50n", icon: FogIcon}
 ];
 
-export default WeatherIcons;
+export default () => {
+  return WeatherIcons;
+};
